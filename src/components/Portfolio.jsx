@@ -12,26 +12,32 @@ const Portfolio = () => {
     {
       title: 'Modern Kitchen Renovation',
       category: 'Kitchens',
+      image: '/images/portfolio/newkitchen2.jpg',
     },
     {
       title: 'Luxury Bathroom Suite',
       category: 'Bathrooms',
+      image: '/images/portfolio/bathroom1.jpg',
     },
     {
       title: 'Garden Decking Project',
       category: 'Outdoor',
+      image: '/images/portfolio/outsidepato.jpg',
     },
     {
-      title: 'Spacious Loft Conversion',
+      title: 'Building Extension',
       category: 'Extensions',
+      image: '/images/portfolio/Outsidebuilding.jpg',
     },
     {
-      title: 'Custom Built-in Storage',
+      title: 'Custom Kitchen Cabinets',
       category: 'Carpentry',
+      image: '/images/portfolio/newkitchen3.jpg',
     },
     {
-      title: 'Full Home Refurbishment',
+      title: 'Outbuilding Construction',
       category: 'Renovations',
+      image: '/images/portfolio/Outbuilding3.jpg',
     },
   ];
 
@@ -66,7 +72,7 @@ const Portfolio = () => {
               <img 
                 alt={`${project.title} - SGH Carpentry`}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ease-in-out"
-               src="https://images.unsplash.com/photo-1496053104232-e7c7a99dafc0" />
+                src={project.image} />
               
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 sm:p-6">
                 <div className="text-center">
@@ -106,7 +112,7 @@ const Portfolio = () => {
                 <img 
                   alt={`${selectedImage.title} - SGH Carpentry`}
                   className="w-full h-auto max-h-[80vh] object-contain rounded"
-                 src="https://images.unsplash.com/photo-1702565699599-e1afe79342d4" />
+                  src={selectedImage.image} />
             </motion.div>
           </motion.div>
         )}

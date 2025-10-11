@@ -31,14 +31,14 @@ const About = () => {
             transition={{ duration: 0.6, ease: 'easeOut' }}
           >
             <div className="relative aspect-square">
-              <img alt="Craftsman carefully measuring wood" className="absolute w-full h-full object-cover rounded-lg shadow-lg" src="https://images.unsplash.com/photo-1560184984-40825b480203" />
+              <img alt="SGH Carpentry quality craftsmanship" className="absolute w-full h-full object-cover rounded-lg shadow-lg" src="/images/portfolio/newkitchen5.jpg" />
               <motion.div 
                 className="absolute -bottom-8 -right-8 w-2/3"
                 initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: 0.3, ease: 'easeOut' }}
               >
-                <img alt="Modern house extension project" className="w-full h-auto object-cover rounded-lg shadow-lg border-4 border-card" src="https://images.unsplash.com/photo-1621983209342-ebf870427308" />
+                <img alt="SGH building and extension project" className="w-full h-auto object-cover rounded-lg shadow-lg border-4 border-card" src="/images/portfolio/Outsidebuilding2.jpg" />
               </motion.div>
             </div>
           </motion.div>

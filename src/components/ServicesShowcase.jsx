@@ -12,21 +12,21 @@ const ServicesShowcase = () => {
       icon: Hammer,
       title: 'Carpentry',
       description: 'Expert woodwork and custom carpentry solutions. From bespoke furniture to intricate joinery, we bring your vision to life with precision craftsmanship.',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7',
+      image: '/images/services/Upstairs.jpg',
       features: ['Custom Furniture', 'Joinery', 'Repairs', 'Fittings']
     },
     {
       icon: Building2,
       title: 'Building',
       description: 'Complete building services from foundations to finish. Extensions, renovations, and new builds delivered with quality and reliability.',
-      image: 'https://images.unsplash.com/photo-1621983209342-ebf870427308',
+      image: '/images/services/Outsidedoors.jpg',
       features: ['Extensions', 'Renovations', 'New Builds', 'General Building']
     },
     {
       icon: ChefHat,
       title: 'Kitchens',
       description: 'Beautiful kitchen designs and installations. Modern layouts, premium materials, and professional fitting for your dream kitchen.',
-      image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136',
+      image: '/images/services/newkitchen4.jpg',
       features: ['Design & Planning', 'Installation', 'Renovation', 'Custom Worktops']
     },
   ];

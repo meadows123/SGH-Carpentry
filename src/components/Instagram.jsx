@@ -6,49 +6,40 @@ import { Instagram as InstagramIcon, ExternalLink } from 'lucide-react';
 const InstagramFeed = () => {
   const [ref, isInView] = useInView({ threshold: 0.1, once: true });
 
-  // Sample Instagram posts - replace with actual posts
+  // Instagram profile
+  const instagramProfile = "https://www.instagram.com/sgh_carpentryandbuild";
+
+  // Recent project photos - each links to Instagram
   const instagramPosts = [
     {
       id: 1,
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      image: "/images/portfolio/newkitchen2.jpg",
       caption: "Beautiful custom kitchen renovation completed! 🏠✨",
-      likes: 42,
-      comments: 8,
     },
     {
       id: 2,
-      image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0",
-      caption: "New decking project finished - perfect for summer evenings! 🌅",
-      likes: 38,
-      comments: 12,
+      image: "/images/portfolio/outsidepato.jpg",
+      caption: "New patio project finished - perfect for summer evenings! 🌅",
     },
     {
       id: 3,
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
-      caption: "Loft conversion progress - transforming unused space! 🏗️",
-      likes: 55,
-      comments: 15,
+      image: "/images/portfolio/Upstairs2.jpg",
+      caption: "Loft space transformation - maximizing your home! 🏗️",
     },
     {
       id: 4,
-      image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0",
-      caption: "Custom built-in storage solution - maximizing every inch! 📦",
-      likes: 29,
-      comments: 6,
+      image: "/images/portfolio/newkitchen3.jpg",
+      caption: "Custom kitchen cabinets - precision craftsmanship! 📦",
     },
     {
       id: 5,
-      image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+      image: "/images/portfolio/bathroom1.jpg",
       caption: "Bathroom renovation complete - luxury meets functionality! 🛁",
-      likes: 47,
-      comments: 9,
     },
     {
       id: 6,
-      image: "https://images.unsplash.com/photo-1560185007-cde436f6a4d0",
-      caption: "Garden fencing project - privacy and style combined! 🌿",
-      likes: 33,
-      comments: 7,
+      image: "/images/portfolio/Outsidebuilding.jpg",
+      caption: "Building extension project - quality workmanship! 🏗️",
     },
   ];
 
@@ -82,8 +73,11 @@ const InstagramFeed = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 px-4 md:px-0">
           {instagramPosts.map((post, index) => (
-            <motion.div
+            <motion.a
               key={post.id}
+              href={instagramProfile}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -91,25 +85,16 @@ const InstagramFeed = () => {
             >
               <img
                 src={post.image}
-                alt={`Instagram post ${post.id}`}
+                alt={post.caption}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <div className="text-center text-white">
-                  <div className="flex items-center justify-center gap-4 mb-2">
-                    <span className="flex items-center gap-1">
-                      <span className="text-lg">❤️</span>
-                      <span className="text-sm font-semibold">{post.likes}</span>
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <span className="text-lg">💬</span>
-                      <span className="text-sm font-semibold">{post.comments}</span>
-                    </span>
-                  </div>
-                  <p className="text-xs px-2 line-clamp-2">{post.caption}</p>
+                <div className="text-center text-white px-4">
+                  <InstagramIcon className="w-8 h-8 mx-auto mb-2" />
+                  <p className="text-xs line-clamp-2">{post.caption}</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
 

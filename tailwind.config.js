@@ -24,7 +24,7 @@ module.exports = {
         popover: "hsl(0 0% 8%)",
         "popover-foreground": "hsl(0 0% 98%)",
         primary: {
-          DEFAULT: "hsl(180 100% 50%)",
+          DEFAULT: "hsl(90 100% 50%)",
           foreground: "hsl(0 0% 0%)",
         },
         secondary: {
@@ -40,12 +40,12 @@ module.exports = {
           foreground: "hsl(0 0% 63%)",
         },
         accent: {
-          DEFAULT: "hsl(180 100% 50%)",
+          DEFAULT: "hsl(90 100% 50%)",
           foreground: "hsl(0 0% 0%)",
         },
         border: "hsl(0 0% 20%)",
         input: "hsl(0 0% 20%)",
-        ring: "hsl(180 100% 50%)",
+        ring: "hsl(90 100% 50%)",
       },
       borderRadius: {
         lg: "var(--radius)",

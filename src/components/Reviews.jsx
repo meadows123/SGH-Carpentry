@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
-import { Star, MapPin, Calendar, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star, MapPin, Calendar, ExternalLink, ChevronLeft, ChevronRight, PenSquare } from 'lucide-react';
+import ReviewForm from '@/components/ReviewForm';
 
 const Reviews = () => {
   const [ref, isInView] = useInView({ threshold: 0.1, once: true });
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isReviewFormOpen, setIsReviewFormOpen] = useState(false);
 
   const reviews = [
     {
       id: 1,
       name: "Sarah Johnson",
-      location: "Manchester",
+      location: "Bristol",
       rating: 5,
       date: "2 weeks ago",
       review: "Absolutely fantastic work! SGH transformed our kitchen completely. The attention to detail and quality of craftsmanship is outstanding. Highly recommend!",
@@ -20,7 +22,7 @@ const Reviews = () => {
     {
       id: 2,
       name: "Michael Chen",
-      location: "Birmingham",
+      location: "Bath",
       rating: 5,
       date: "1 month ago",
       review: "Professional, reliable, and excellent value for money. Our loft conversion exceeded expectations. The team was clean, punctual, and respectful of our home.",
@@ -29,7 +31,7 @@ const Reviews = () => {
     {
       id: 3,
       name: "Emma Williams",
-      location: "Leeds",
+      location: "Exeter",
       rating: 5,
       date: "3 weeks ago",
       review: "From start to finish, the service was impeccable. Our new decking looks amazing and the quality is top-notch. Will definitely use again for future projects.",
@@ -38,7 +40,7 @@ const Reviews = () => {
     {
       id: 4,
       name: "David Thompson",
-      location: "Liverpool",
+      location: "Plymouth",
       rating: 5,
       date: "1 week ago",
       review: "Outstanding carpentry work! The custom built-in wardrobes are exactly what we envisioned. Professional team, fair pricing, and excellent communication throughout.",
@@ -47,7 +49,7 @@ const Reviews = () => {
     {
       id: 5,
       name: "Lisa Brown",
-      location: "Newcastle",
+      location: "Gloucester",
       rating: 5,
       date: "2 months ago",
       review: "SGH completed our bathroom renovation on time and within budget. The quality of work is exceptional and the team was a pleasure to work with. 5 stars!",
@@ -56,7 +58,7 @@ const Reviews = () => {
     {
       id: 6,
       name: "James Wilson",
-      location: "Sheffield",
+      location: "Swindon",
       rating: 5,
       date: "3 weeks ago",
       review: "Excellent service from quote to completion. Our home extension looks incredible and has added significant value to our property. Highly professional team.",
@@ -113,6 +115,15 @@ const Reviews = () => {
           <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4">
             Don't just take our word for it. Here's what our satisfied customers have to say about our work.
           </p>
+          
+          {/* Write Review Button */}
+          <button
+            onClick={() => setIsReviewFormOpen(true)}
+            className="inline-flex items-center gap-2 bg-primary text-black px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors border-2 border-white shadow-lg mb-6"
+          >
+            <PenSquare className="w-5 h-5" />
+            Write a Review
+          </button>
           
           {/* Google Reviews Header */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 md:mb-8 px-4">
@@ -271,6 +282,12 @@ const Reviews = () => {
           </a>
         </motion.div>
       </div>
+
+      {/* Review Form Modal */}
+      <ReviewForm 
+        isOpen={isReviewFormOpen} 
+        onClose={() => setIsReviewFormOpen(false)} 
+      />
     </section>
   );
 };

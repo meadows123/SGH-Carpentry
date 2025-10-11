@@ -22,8 +22,8 @@ const Contact = () => {
     {
       icon: Phone,
       title: 'Phone',
-      value: '+44 7XXX XXXXXX',
-      link: 'tel:+447XXXXXXXXX',
+      value: '+44 7725 126563',
+      link: 'tel:+447725126563',
     },
     {
       icon: Mail,
@@ -34,7 +34,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Serving UK Nationwide',
+      value: 'Serving Southwest UK',
       link: '#',
     },
   ];
