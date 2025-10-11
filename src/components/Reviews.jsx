@@ -7,28 +7,6 @@ const Reviews = () => {
   const [ref, isInView] = useInView({ threshold: 0.1, once: true });
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // Auto-slideshow functionality
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % Math.ceil(reviews.length / 3));
-    }, 5000); // Change slide every 5 seconds
-
-    return () => clearInterval(interval);
-  }, [reviews.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.ceil(reviews.length / 3));
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.ceil(reviews.length / 3)) % Math.ceil(reviews.length / 3));
-  };
-
-  const getVisibleReviews = () => {
-    const startIndex = currentSlide * 3;
-    return reviews.slice(startIndex, startIndex + 3);
-  };
-
   const reviews = [
     {
       id: 1,
@@ -85,6 +63,28 @@ const Reviews = () => {
       project: "Home Extension",
     },
   ];
+
+  // Auto-slideshow functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % Math.ceil(reviews.length / 3));
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []); // reviews.length is constant, so empty dependency array is fine
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % Math.ceil(reviews.length / 3));
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + Math.ceil(reviews.length / 3)) % Math.ceil(reviews.length / 3));
+  };
+
+  const getVisibleReviews = () => {
+    const startIndex = currentSlide * 3;
+    return reviews.slice(startIndex, startIndex + 3);
+  };
 
   const renderStars = (rating) => {
     return Array.from({ length: 5 }, (_, i) => (
