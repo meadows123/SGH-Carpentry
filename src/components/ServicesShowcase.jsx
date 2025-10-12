@@ -39,9 +39,9 @@ const ServicesShowcase = () => {
     <section className="section-padding bg-card">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">Our Expertise</span>
@@ -57,9 +57,18 @@ const ServicesShowcase = () => {
           {mainServices.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              initial={{ opacity: 0, y: 60, rotateY: -15 }}
+              animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.2,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              whileHover={{ 
+                y: -10,
+                rotateY: 5,
+                transition: { duration: 0.3 }
+              }}
               className="group relative overflow-hidden rounded-lg bg-background border border-border hover-lift"
             >
               {/* Service Image */}
@@ -105,9 +114,9 @@ const ServicesShowcase = () => {
 
         {/* View Full Portfolio Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          initial={{ opacity: 0, y: 40, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.8, delay: 1, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center"
         >
           <Button

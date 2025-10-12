@@ -26,9 +26,9 @@ const About = () => {
       <div className="container-custom" ref={ref}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            initial={{ opacity: 0, x: -80, rotateY: -20 }}
+            animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <div className="relative aspect-square">
               <img alt="SGH Carpentry quality craftsmanship" className="absolute w-full h-full object-cover rounded-lg shadow-lg" src="/images/portfolio/newkitchen5.jpg" />
@@ -44,9 +44,9 @@ const About = () => {
           </motion.div>
           
           <motion.div
-             initial={{ opacity: 0, x: 50 }}
-             animate={isInView ? { opacity: 1, x: 0 } : {}}
-             transition={{ duration: 0.6, ease: 'easeOut' }}
+             initial={{ opacity: 0, x: 80, rotateY: 20 }}
+             animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
              className="text-center lg:text-left"
           >
             <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">
@@ -68,15 +68,26 @@ const About = () => {
               ))}
             </div>
 
-            <div className="flex justify-center lg:justify-start">
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base border-2 border-white shadow-lg"
+            <motion.div 
+              className="flex justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Discuss Your Project
-              </Button>
-            </div>
+                <Button
+                  onClick={scrollToContact}
+                  size="lg"
+                  className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base border-2 border-white shadow-lg"
+                >
+                  Discuss Your Project
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
 
         </div>

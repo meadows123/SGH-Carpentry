@@ -45,9 +45,9 @@ const Portfolio = () => {
     <section id="portfolio" className="section-padding bg-background">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">Our Work</span>
@@ -63,9 +63,19 @@ const Portfolio = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, scale: 0.8, rotateX: 45 }}
+              animate={isInView ? { opacity: 1, scale: 1, rotateX: 0 } : {}}
+              transition={{ 
+                duration: 0.7, 
+                delay: index * 0.15,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                rotateX: -5,
+                z: 50,
+                transition: { duration: 0.3 }
+              }}
               className="group relative overflow-hidden aspect-square cursor-pointer"
               onClick={() => setSelectedImage({ ...project, index })}
             >

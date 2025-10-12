@@ -82,9 +82,9 @@ const Contact = () => {
     <section id="contact" className="section-padding">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">Contact Us</span>
@@ -98,9 +98,9 @@ const Contact = () => {
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-12 bg-card border border-border p-4 sm:p-6 md:p-8 rounded-lg mx-4 md:mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -80, rotateY: -15 }}
+            animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="lg:col-span-2"
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-4 md:mb-6">Contact Details</h3>
@@ -126,9 +126,9 @@ const Contact = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 80, rotateY: 15 }}
+            animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
@@ -168,14 +168,20 @@ const Contact = () => {
                 placeholder="Tell us about your project..."
                 className="bg-background resize-none"
               />
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full bg-primary text-black hover:bg-primary/90 font-semibold group border-2 border-white shadow-lg"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                Send Message
-                <Send className="ml-2 w-5 h-5" />
-              </Button>
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full bg-primary text-black hover:bg-primary/90 font-semibold group border-2 border-white shadow-lg"
+                >
+                  Send Message
+                  <Send className="ml-2 w-5 h-5" />
+                </Button>
+              </motion.div>
             </form>
           </motion.div>
         </div>

@@ -40,9 +40,13 @@ const Hero = () => {
 
       <div className="container-custom relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ 
+            duration: 1.2, 
+            ease: [0.25, 0.46, 0.45, 0.94],
+            delay: 0.3
+          }}
         >
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight text-foreground px-4">
             Excellence in Carpentry <br className="hidden sm:block" /> & Building Services
@@ -52,24 +56,41 @@ const Hero = () => {
             With a passion for precision and a commitment to quality, SGH Carpentry & Build transforms your vision into reality.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base group w-full sm:w-auto border-2 border-white shadow-lg"
+          <motion.div 
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              Request a Quote
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              onClick={scrollToPortfolio}
-              size="lg"
-              variant="outline"
-              className="border-2 border-white text-primary hover:bg-primary hover:text-black font-semibold px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto shadow-lg"
+              <Button
+                onClick={scrollToContact}
+                size="lg"
+                className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base group w-full sm:w-auto border-2 border-white shadow-lg"
+              >
+                Request a Quote
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              View Our Work
-            </Button>
-          </div>
+              <Button
+                onClick={scrollToPortfolio}
+                size="lg"
+                variant="outline"
+                className="border-2 border-white text-primary hover:bg-primary hover:text-black font-semibold px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto shadow-lg"
+              >
+                View Our Work
+              </Button>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </section>

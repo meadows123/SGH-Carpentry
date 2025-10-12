@@ -2,6 +2,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Toaster } from '@/components/ui/toaster';
+import ScrollProgress from '@/components/ScrollProgress';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ServicesShowcase from '@/components/ServicesShowcase';
@@ -21,6 +22,7 @@ function App() {
         <html lang="en" />
       </Helmet>
       <div className="bg-background text-foreground">
+        <ScrollProgress />
         <Navbar />
         <main>
           <Hero />
