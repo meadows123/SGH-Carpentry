@@ -47,6 +47,7 @@ const About = () => {
              initial={{ opacity: 0, x: 50 }}
              animate={isInView ? { opacity: 1, x: 0 } : {}}
              transition={{ duration: 0.6, ease: 'easeOut' }}
+             className="text-center lg:text-left"
           >
             <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">
               About SGH
@@ -54,26 +55,28 @@ const About = () => {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6">
               A Legacy of Quality Craftsmanship
             </h2>
-            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground mb-6 md:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               For over 15 years, SGH Carpentry & Build has been synonymous with exceptional quality and reliability. As a family-run business, we pour our heart into every project, ensuring results that exceed expectations.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 md:gap-y-4 mb-6 md:mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 md:gap-y-4 mb-6 md:mb-8 max-w-2xl mx-auto lg:mx-0">
               {values.map((value, index) => (
-                <div key={index} className="flex items-center space-x-3">
+                <div key={index} className="flex items-center space-x-3 justify-center sm:justify-start">
                   <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                   <span className="text-foreground/90 text-sm sm:text-base">{value}</span>
                 </div>
               ))}
             </div>
 
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base border-2 border-white shadow-lg"
-            >
-              Discuss Your Project
-            </Button>
+            <div className="flex justify-center lg:justify-start">
+              <Button
+                onClick={scrollToContact}
+                size="lg"
+                className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base border-2 border-white shadow-lg"
+              >
+                Discuss Your Project
+              </Button>
+            </div>
           </motion.div>
 
         </div>
