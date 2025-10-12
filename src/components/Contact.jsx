@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { submitContactForm } from '@/config/contactConfig';
 
 const Contact = () => {
   const [ref, isInView] = useInView({ threshold: 0.1, once: true });
@@ -39,14 +40,38 @@ const Contact = () => {
     },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for your inquiry. We'll be in touch shortly.",
-      variant: 'default',
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      toast({
+        title: 'Missing Information',
+        description: 'Please fill in all required fields.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    try {
+      // Submit the form
+      await submitContactForm(formData);
+      
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for your inquiry. We'll be in touch shortly.",
+        variant: 'default',
+      });
+      
+      // Reset form
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (error) {
+      toast({
+        title: 'Submission Failed',
+        description: 'There was an error sending your message. Please try again or call us directly.',
+        variant: 'destructive',
+      });
+    }
   };
 
   const handleChange = (e) => {
