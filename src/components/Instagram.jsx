@@ -47,18 +47,35 @@ const InstagramFeed = () => {
     <section id="instagram" className="section-padding bg-muted/30">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">Follow Us</span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 px-4">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block"
+          >
+            Follow Us
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30, rotateX: 30 }}
+            animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 px-4"
+          >
             Latest Projects on Instagram
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4"
+          >
             Follow our journey and see our latest work in real-time. From concept to completion, we share every step.
-          </p>
+          </motion.p>
           <a
             href="https://www.instagram.com/sgh_carpentryandbuild"
             target="_blank"
@@ -78,10 +95,23 @@ const InstagramFeed = () => {
               href={instagramProfile}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer"
+              initial={{ opacity: 0, scale: 0.7, rotate: index % 2 === 0 ? -10 : 10 }}
+              animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+              transition={{ 
+                duration: 0.7, 
+                delay: 0.5 + (index * 0.12),
+                ease: [0.22, 1, 0.36, 1],
+                type: "spring",
+                stiffness: 100,
+                damping: 12
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: index % 2 === 0 ? 3 : -3,
+                zIndex: 10,
+                transition: { duration: 0.3 }
+              }}
+              className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer border-2 border-transparent hover:border-primary"
             >
               <img
                 src={post.image}

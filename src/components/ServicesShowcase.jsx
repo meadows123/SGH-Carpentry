@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
 import { ArrowRight, Hammer, Building2, ChefHat } from 'lucide-react';
@@ -6,6 +7,7 @@ import { Button } from '@/components/ui/button';
 
 const ServicesShowcase = () => {
   const [ref, isInView] = useInView({ threshold: 0.1, once: true });
+  const navigate = useNavigate();
 
   const mainServices = [
     {
@@ -31,45 +33,71 @@ const ServicesShowcase = () => {
     },
   ];
 
-  const scrollToPortfolio = () => {
-    document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
+  const goToGallery = () => {
+    navigate('/gallery');
   };
 
   return (
     <section className="section-padding bg-card">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          initial={{ opacity: 0, y: 60, scale: 0.9 }}
           animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.22, 1, 0.36, 1],
+            staggerChildren: 0.2
+          }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">Our Expertise</span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 px-4">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block"
+          >
+            Our Expertise
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30, rotateX: 45 }}
+            animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 px-4"
+          >
             What We Do
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4"
+          >
             Three core services, unlimited possibilities. We specialize in carpentry, building, and kitchen solutions that transform your space.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 px-4 md:px-0">
           {mainServices.map((service, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 60, rotateY: -15 }}
-              animate={isInView ? { opacity: 1, y: 0, rotateY: 0 } : {}}
+              initial={{ opacity: 0, y: 80, scale: 0.8, rotateX: 45 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1, rotateX: 0 } : {}}
               transition={{ 
-                duration: 0.8, 
-                delay: index * 0.2,
-                ease: [0.25, 0.46, 0.45, 0.94]
+                duration: 0.9, 
+                delay: index * 0.25,
+                ease: [0.22, 1, 0.36, 1],
+                type: "spring",
+                stiffness: 100,
+                damping: 15
               }}
               whileHover={{ 
-                y: -10,
-                rotateY: 5,
-                transition: { duration: 0.3 }
+                y: -15,
+                scale: 1.02,
+                rotateY: 3,
+                boxShadow: "0 20px 60px rgba(144, 238, 144, 0.3)",
+                transition: { duration: 0.4, ease: "easeOut" }
               }}
-              className="group relative overflow-hidden rounded-lg bg-background border border-border hover-lift"
+              className="group relative overflow-hidden rounded-lg bg-background border border-border"
             >
               {/* Service Image */}
               <div className="relative aspect-video overflow-hidden">
@@ -120,7 +148,7 @@ const ServicesShowcase = () => {
           className="text-center"
         >
           <Button
-            onClick={scrollToPortfolio}
+            onClick={goToGallery}
             size="lg"
             className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base group border-2 border-white shadow-lg"
           >

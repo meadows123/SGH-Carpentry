@@ -1,16 +1,25 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import BookingModal from '@/components/BookingModal';
 
 const Hero = () => {
-  const scrollToContact = () => {
-    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  const navigate = useNavigate();
+  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  
+  const openBookingModal = () => {
+    setIsBookingModalOpen(true);
+  };
+
+  const closeBookingModal = () => {
+    setIsBookingModalOpen(false);
   };
   
-  const scrollToPortfolio = () => {
-    document.querySelector('#portfolio')?.scrollIntoView({ behavior: 'smooth' });
+  const goToGallery = () => {
+    navigate('/gallery');
   };
 
   return (
@@ -48,11 +57,11 @@ const Hero = () => {
             delay: 0.3
           }}
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight text-foreground px-4">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 leading-tight text-white px-4">
             Excellence in Carpentry <br className="hidden sm:block" /> & Building Services
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-10 px-4">
+          <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto mb-6 md:mb-10 px-4">
             With a passion for precision and a commitment to quality, SGH Carpentry & Build transforms your vision into reality.
           </p>
 
@@ -68,11 +77,11 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <Button
-                onClick={scrollToContact}
+                onClick={openBookingModal}
                 size="lg"
                 className="bg-primary text-black hover:bg-primary/90 font-semibold px-6 sm:px-8 text-sm sm:text-base group w-full sm:w-auto border-2 border-white shadow-lg"
               >
-                Request a Quote
+                Get Free Consultation
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </motion.div>
@@ -82,10 +91,10 @@ const Hero = () => {
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
               <Button
-                onClick={scrollToPortfolio}
+                onClick={goToGallery}
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-primary hover:bg-primary hover:text-black font-semibold px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto shadow-lg"
+                className="border-2 border-white text-white hover:bg-primary hover:text-black font-semibold px-6 sm:px-8 text-sm sm:text-base w-full sm:w-auto shadow-lg"
               >
                 View Our Work
               </Button>
@@ -93,6 +102,9 @@ const Hero = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Booking Modal */}
+      <BookingModal isOpen={isBookingModalOpen} onClose={closeBookingModal} />
     </section>
   );
 };

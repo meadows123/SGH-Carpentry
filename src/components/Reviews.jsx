@@ -69,23 +69,23 @@ const Reviews = () => {
   // Auto-slideshow functionality
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % Math.ceil(reviews.length / 3));
+      setCurrentSlide((prev) => (prev + 1) % reviews.length);
     }, 5000); // Change slide every 5 seconds
 
     return () => clearInterval(interval);
   }, []); // reviews.length is constant, so empty dependency array is fine
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % Math.ceil(reviews.length / 3));
+    setCurrentSlide((prev) => (prev + 1) % reviews.length);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + Math.ceil(reviews.length / 3)) % Math.ceil(reviews.length / 3));
+    setCurrentSlide((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
 
   const getVisibleReviews = () => {
-    const startIndex = currentSlide * 3;
-    return reviews.slice(startIndex, startIndex + 3);
+    // On mobile, show 1 review. On tablet/desktop, show 3
+    return [reviews[currentSlide]];
   };
 
   const renderStars = (rating) => {
@@ -184,7 +184,7 @@ const Reviews = () => {
                 animate={{ opacity: 1, x: 0, scale: 1 }}
                 exit={{ opacity: 0, x: -100, scale: 0.9 }}
                 transition={{ duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8"
+                className="grid grid-cols-1 gap-4 md:gap-8 max-w-lg mx-auto"
               >
                 {getVisibleReviews().map((review, index) => (
                   <motion.div
@@ -248,7 +248,7 @@ const Reviews = () => {
 
           {/* Slide Indicators */}
           <div className="flex justify-center mt-6 gap-2">
-            {Array.from({ length: Math.ceil(reviews.length / 3) }).map((_, index) => (
+            {reviews.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}

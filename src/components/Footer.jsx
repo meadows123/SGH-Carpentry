@@ -1,26 +1,19 @@
 
 import React from 'react';
-import { Hammer, Instagram, Facebook, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Instagram, Facebook, Mail } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
-  const scrollToSection = (href) => {
-    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <footer className="bg-card border-t border-border">
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2">
-             <button onClick={() => scrollToSection('#home')} className="flex items-center space-x-3 mb-4 text-left">
-               <Hammer className="w-8 h-8 text-primary" />
-               <div>
-                 <span className="text-xl font-bold text-foreground block">SGH</span>
-                 <span className="text-xs text-muted-foreground tracking-widest uppercase">Carpentry & Build</span>
-               </div>
-            </button>
+             <Link to="/" className="flex items-center mb-4">
+               <img src="/images/Transparent-logo.png" alt="SGH Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+            </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Delivering high-quality carpentry and building solutions with a professional touch and a commitment to excellence.
             </p>
@@ -40,12 +33,9 @@ const Footer = () => {
           <div>
             <p className="font-bold text-foreground mb-4">Navigation</p>
             <ul className="space-y-2">
-              <li><button onClick={() => scrollToSection('#home')} className="text-muted-foreground hover:text-primary transition-colors">Home</button></li>
-              <li><button onClick={() => scrollToSection('#portfolio')} className="text-muted-foreground hover:text-primary transition-colors">Portfolio</button></li>
-              <li><button onClick={() => scrollToSection('#about')} className="text-muted-foreground hover:text-primary transition-colors">About</button></li>
-              <li><button onClick={() => scrollToSection('#instagram')} className="text-muted-foreground hover:text-primary transition-colors">Instagram</button></li>
-              <li><button onClick={() => scrollToSection('#reviews')} className="text-muted-foreground hover:text-primary transition-colors">Reviews</button></li>
-              <li><button onClick={() => scrollToSection('#contact')} className="text-muted-foreground hover:text-primary transition-colors">Contact</button></li>
+              <li><Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link></li>
+              <li><Link to="/gallery" className="text-muted-foreground hover:text-primary transition-colors">Gallery</Link></li>
+              <li><Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
             </ul>
           </div>
 

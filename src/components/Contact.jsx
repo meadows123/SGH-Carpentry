@@ -82,25 +82,42 @@ const Contact = () => {
     <section id="contact" className="section-padding">
       <div className="container-custom" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
-          animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          initial={{ opacity: 0, y: 60 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block">Contact Us</span>
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 px-4">
+          <motion.span 
+            initial={{ opacity: 0, scale: 0, rotate: -180 }}
+            animate={isInView ? { opacity: 1, scale: 1, rotate: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2, type: "spring", stiffness: 150 }}
+            className="text-primary font-semibold uppercase tracking-wider text-sm mb-2 block"
+          >
+            Contact Us
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 40, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 px-4"
+          >
             Let's Build Something Great
-          </h2>
-          <p className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="text-base sm:text-lg text-muted-foreground max-w-3xl mx-auto px-4"
+          >
             Have a project in mind? We'd love to hear about it. Reach out today for a no-obligation consultation.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-6 md:gap-12 bg-card border border-border p-4 sm:p-6 md:p-8 rounded-lg mx-4 md:mx-auto">
           <motion.div
-            initial={{ opacity: 0, x: -80, rotateY: -15 }}
-            animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, x: -100, scale: 0.9, rotateY: -30 }}
+            animate={isInView ? { opacity: 1, x: 0, scale: 1, rotateY: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-2"
           >
             <h3 className="text-xl sm:text-2xl font-bold mb-4 md:mb-6">Contact Details</h3>
@@ -126,9 +143,9 @@ const Contact = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 80, rotateY: 15 }}
-            animate={isInView ? { opacity: 1, x: 0, rotateY: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
+            initial={{ opacity: 0, x: 100, scale: 0.9, rotateY: 30 }}
+            animate={isInView ? { opacity: 1, x: 0, scale: 1, rotateY: 0 } : {}}
+            transition={{ duration: 0.9, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="space-y-3 md:space-y-4">
