@@ -27,7 +27,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-0">
         {/* Background Image */}
         <img
-          src="/images/portfolio/outsidehouse.jpg"
+          src="/images/portfolio/Outsidehouse.jpg"
           alt="SGH Carpentry & Build showcase"
           className="w-full h-full object-cover"
         />
