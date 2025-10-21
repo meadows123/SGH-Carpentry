@@ -25,25 +25,13 @@ const Hero = () => {
   return (
     <section id="home" className="relative h-screen min-h-[600px] md:min-h-[700px] flex items-center justify-center text-center overflow-hidden">
       <div className="absolute inset-0 z-0">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        {/* Background Image */}
+        <img
+          src="/images/portfolio/outsidehouse.jpg"
+          alt="SGH Carpentry & Build showcase"
           className="w-full h-full object-cover"
-          poster="/images/hero/hero-background.jpg"
-        >
-          <source src="/videos/hero-video.mp4" type="video/mp4" />
-          <source src="/videos/hero-video.webm" type="video/webm" />
-          {/* Fallback to image if video doesn't load */}
-          <img
-            src="/images/hero/hero-background.jpg"
-            alt="SGH Carpentry & Build showcase"
-            className="w-full h-full object-cover"
-          />
-        </video>
-        {/* Dark overlay - adjust the opacity here (70 = 70% dark) */}
+        />
+        {/* Dark overlay - adjust the opacity here (60 = 60% dark) */}
         <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
