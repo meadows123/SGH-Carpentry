@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from '@/hooks/useInView';
-import { Star, MapPin, Calendar, ExternalLink, ChevronLeft, ChevronRight, PenSquare } from 'lucide-react';
+import { Star, MapPin, Calendar, ExternalLink, ChevronLeft, ChevronRight, PenSquare, CheckCircle } from 'lucide-react';
 import ReviewForm from '@/components/ReviewForm';
 
 const Reviews = () => {
@@ -18,6 +18,7 @@ const Reviews = () => {
       date: "2 weeks ago",
       review: "Absolutely fantastic work! SGH transformed our kitchen completely. The attention to detail and quality of craftsmanship is outstanding. Highly recommend!",
       project: "Kitchen Renovation",
+      avatar: "https://i.pravatar.cc/150?img=5",
     },
     {
       id: 2,
@@ -27,6 +28,7 @@ const Reviews = () => {
       date: "1 month ago",
       review: "Professional, reliable, and excellent value for money. Our loft conversion exceeded expectations. The team was clean, punctual, and respectful of our home.",
       project: "Loft Conversion",
+      avatar: "https://i.pravatar.cc/150?img=12",
     },
     {
       id: 3,
@@ -36,6 +38,7 @@ const Reviews = () => {
       date: "3 weeks ago",
       review: "From start to finish, the service was impeccable. Our new decking looks amazing and the quality is top-notch. Will definitely use again for future projects.",
       project: "Garden Decking",
+      avatar: "https://i.pravatar.cc/150?img=9",
     },
     {
       id: 4,
@@ -45,6 +48,7 @@ const Reviews = () => {
       date: "1 week ago",
       review: "Outstanding carpentry work! The custom built-in wardrobes are exactly what we envisioned. Professional team, fair pricing, and excellent communication throughout.",
       project: "Custom Carpentry",
+      avatar: "https://i.pravatar.cc/150?img=14",
     },
     {
       id: 5,
@@ -54,6 +58,7 @@ const Reviews = () => {
       date: "2 months ago",
       review: "SGH completed our bathroom renovation on time and within budget. The quality of work is exceptional and the team was a pleasure to work with. 5 stars!",
       project: "Bathroom Renovation",
+      avatar: "https://i.pravatar.cc/150?img=20",
     },
     {
       id: 6,
@@ -63,6 +68,7 @@ const Reviews = () => {
       date: "3 weeks ago",
       review: "Excellent service from quote to completion. Our home extension looks incredible and has added significant value to our property. Highly professional team.",
       project: "Home Extension",
+      avatar: "https://i.pravatar.cc/150?img=13",
     },
   ];
 
@@ -216,13 +222,19 @@ const Reviews = () => {
                     <div className="border-t border-gray-100 pt-4">
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
-                            <span className="text-gray-600 font-semibold text-sm">
-                              {review.name.split(' ').map(n => n[0]).join('')}
-                            </span>
+                          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-200">
+                            <img 
+                              src={review.avatar} 
+                              alt={review.name}
+                              className="w-full h-full object-cover"
+                              loading="lazy"
+                            />
                           </div>
                           <div>
-                            <h4 className="font-semibold text-gray-900 text-sm">{review.name}</h4>
+                            <h4 className="font-semibold text-gray-900 text-sm flex items-center gap-1">
+                              {review.name}
+                              <CheckCircle className="w-4 h-4 text-blue-500 fill-current" />
+                            </h4>
                             <div className="flex items-center gap-2 text-xs text-gray-500">
                               <MapPin className="w-3 h-3" />
                               {review.location}
@@ -234,9 +246,13 @@ const Reviews = () => {
                           {review.date}
                         </span>
                       </div>
-                      <div className="mt-3">
+                      <div className="mt-3 flex items-center justify-between">
                         <span className="inline-block bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs font-medium">
                           {review.project}
+                        </span>
+                        <span className="inline-flex items-center gap-1 text-xs text-green-600 font-medium">
+                          <CheckCircle className="w-3 h-3 fill-current" />
+                          Verified Review
                         </span>
                       </div>
                     </div>
