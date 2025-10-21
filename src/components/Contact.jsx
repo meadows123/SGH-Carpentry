@@ -29,8 +29,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'info@sghcarpentry.co.uk',
-      link: 'mailto:info@sghcarpentry.co.uk',
+      value: 'Sghcarpentryandbuild@icloud.com',
+      link: 'mailto:Sghcarpentryandbuild@icloud.com',
     },
     {
       icon: MapPin,

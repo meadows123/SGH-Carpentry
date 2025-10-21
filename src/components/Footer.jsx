@@ -12,7 +12,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div className="lg:col-span-2">
              <Link to="/" className="flex items-center mb-4">
-               <img src="/images/Transparent-logo.png" alt="SGH Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
+               <img src="/images/Logo-Footer.png" alt="SGH Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
             </Link>
             <p className="text-muted-foreground mb-6 max-w-sm">
               Delivering high-quality carpentry and building solutions with a professional touch and a commitment to excellence.
@@ -24,7 +24,7 @@ const Footer = () => {
               <a href="#" className="w-10 h-10 bg-background hover:bg-primary text-primary hover:text-primary-foreground rounded-md flex items-center justify-center transition-colors border border-border">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="mailto:info@sghcarpentry.co.uk" className="w-10 h-10 bg-background hover:bg-primary text-primary hover:text-primary-foreground rounded-md flex items-center justify-center transition-colors border border-border">
+              <a href="mailto:Sghcarpentryandbuild@icloud.com" className="w-10 h-10 bg-background hover:bg-primary text-primary hover:text-primary-foreground rounded-md flex items-center justify-center transition-colors border border-border">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
