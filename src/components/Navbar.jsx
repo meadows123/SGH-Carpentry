@@ -51,7 +51,7 @@ const Navbar = () => {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center">
-             <img src="/images/Logo.png" alt="SGH Logo" className="w-10 h-10 md:w-14 md:h-14 object-contain" />
+             <img src="/images/New-Logo1-bigger (1).png" alt="SGH Logo" className="w-12 h-12 md:w-18 md:h-18 object-contain" />
           </Link>
 
           <div className="hidden md:flex items-center space-x-2">
